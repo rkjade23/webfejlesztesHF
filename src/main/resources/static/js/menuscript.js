@@ -33,9 +33,10 @@ function displayRecord(record) {
   document.getElementById('createdAt').textContent = new Date(record.createdAt).toLocaleString();
   document.getElementById('temperature').textContent = `${record.temperature.toFixed(2)} °C`;
   document.getElementById('windSpeed').textContent = `${record.windSpeed} m/s`;
-  //.getElementById('windDirection').textContent = `${record.windDirection} °`;
-  //document.getElementById('pressure').textContent = `${record.pressure.toFixed(2)} hPa`;
+  document.getElementById('windDirection').textContent = `${record.windDirection} °`;
+  document.getElementById('pressure').textContent = `${record.pressure.toFixed(2)} hPa`;
   document.getElementById('humidity').textContent = `${record.humidity.toFixed(2)}%`;
+  document.querySelector('.rotate-image').style.transform = `rotate(${record.windDirection}deg)`;
 }
 
 document.addEventListener('DOMContentLoaded', function() {

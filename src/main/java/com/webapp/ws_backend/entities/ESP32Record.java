@@ -8,7 +8,7 @@ import java.time.Instant;
 
 @Entity
 @Table(name = "esp32_weather_records")
-public class ESP32Records {
+public class ESP32Record {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,10 +34,10 @@ public class ESP32Records {
     @Column(name = "timestamp", updatable = false, nullable = false)
     private Instant createdAt;
 
-    public ESP32Records() {
+    public ESP32Record() {
     }
 
-    public ESP32Records(int windSpeed, int windDirection, float temperature, float pressure, float humidity) {
+    public ESP32Record(int windSpeed, int windDirection, float temperature, float pressure, float humidity) {
         this.windSpeed = windSpeed;
         this.windDirection = windDirection;
         this.temperature = temperature;
@@ -45,7 +45,7 @@ public class ESP32Records {
         this.humidity = humidity;
     }
 
-    public ESP32Records(int windSpeed, int windDirection, float temperature, float pressure, float humidity, Instant createdAt) {
+    public ESP32Record(int windSpeed, int windDirection, float temperature, float pressure, float humidity, Instant createdAt) {
         this.windSpeed = windSpeed;
         this.windDirection = windDirection;
         this.temperature = temperature;

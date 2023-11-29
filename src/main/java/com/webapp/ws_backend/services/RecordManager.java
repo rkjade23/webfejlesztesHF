@@ -2,12 +2,14 @@ package com.webapp.ws_backend.services;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Random;
 
 import com.webapp.ws_backend.repositories.ESP32RecordsRepository;
-import com.webapp.ws_backend.entities.ESP32Records;
+import com.webapp.ws_backend.entities.ESP32Record;
 
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class RecordManager {
@@ -18,33 +20,48 @@ public class RecordManager {
         this.esp32RecordsRepository = esp32RecordsRepository;
     }
 
-    public List<ESP32Records> getRecords() {
+    @Transactional(readOnly = true)
+    public List<ESP32Record> getRecords() {
         return esp32RecordsRepository.findAll();
     }
 
-    public ESP32Records createRecord(ESP32Records record) {
+    @Transactional(readOnly = false)
+    public ESP32Record createRecord(ESP32Record record) {
         return esp32RecordsRepository.save(record);
     }
 
+    @Transactional(readOnly = false)
+    public ESP32Record createRecordAndDeleteFirst(ESP32Record record) {
+        ESP32Record savedRecord = createRecord(record);
+        deleteFirstRecord();
+        return savedRecord;
+    }
+
+    @Transactional(readOnly = false)
     public void deleteFirstRecord() {
-        List<ESP32Records> allRecords = esp32RecordsRepository.findAll();
+        List<ESP32Record> allRecords = esp32RecordsRepository.findAll();
         if (!allRecords.isEmpty()) {
-            if(allRecords.size()>=10)
-            {
-                ESP32Records firstRecord = allRecords.get(0);
+            if (allRecords.size() >= 10) {
+                ESP32Record firstRecord = allRecords.get(0);
                 esp32RecordsRepository.deleteById(firstRecord.getId());
             }
         }
     }
 
+    @Transactional(readOnly = false)
     public void deleteRecord(Long id) {
         esp32RecordsRepository.deleteById(id);
     }
 
-    public ESP32Records getLastRecord() {
+    public ESP32Record getLastRecord() {
+        final var random = new Random();
         return esp32RecordsRepository.findTop1ByOrderByCreatedAtDesc().orElse(
-                new ESP32Records(0, 0, 0.0f, 0.0f, 0.0f, Instant.now())
+                new ESP32Record(random.nextInt(-10, 20),
+                        random.nextInt(0, 360),
+                        random.nextFloat(-25.f, 50.f),
+                        random.nextFloat(1000),
+                        random.nextFloat(0.f, 100.f),
+                        Instant.now())
         );
-
     }
 }

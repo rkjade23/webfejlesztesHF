@@ -3,7 +3,6 @@ package com.webapp.ws_backend.controllers;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +16,7 @@ import com.webapp.ws_backend.services.RecordManager;
 
 import jakarta.validation.Valid;
 
-import com.webapp.ws_backend.entities.ESP32Records;
+import com.webapp.ws_backend.entities.ESP32Record;
 
 @RestController
 @RequestMapping
@@ -30,21 +29,18 @@ public class ESP32RecordsController {
     }
 
     @GetMapping("/records")
-    public List<ESP32Records> getAllRecords() {
+    public List<ESP32Record> getAllRecords() {
         return esp32RecordsService.getRecords();
     }
 
     @GetMapping("/record")
-    public ESP32Records getLastRecord() {
+    public ESP32Record getLastRecord() {
         return esp32RecordsService.getLastRecord();
     }
 
-
-    // , consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, produces = MediaType.APPLICATION_JSON_VALUES
     @PostMapping("/records")
-    public ResponseEntity<ESP32Records> createRecord(@RequestBody @Valid ESP32Records record) {
-        ESP32Records savedRecord = esp32RecordsService.createRecord(record);
-        esp32RecordsService.deleteFirstRecord();
+    public ResponseEntity<ESP32Record> createRecord(@RequestBody @Valid ESP32Record record) {
+        final var savedRecord = esp32RecordsService.createRecordAndDeleteFirst(record);
         return new ResponseEntity<>(savedRecord, HttpStatus.CREATED);
     }
 
