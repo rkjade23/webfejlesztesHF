@@ -77,22 +77,6 @@ const getCityCoordinates = () => {
     });
 }
 
-const getDefaultCityCoordinates = () => {
-    console.log()
-    const cityName = "Budapest";
-    if (cityName === "") return;
-    const API_URL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_KEY}`;
-
-    // Get entered city coordinates (latitude, longitude, and name) from the API response
-    fetch(API_URL).then(response => response.json()).then(data => {
-        if (!data.length) return alert(`No coordinates found for ${cityName}`);
-        const { lat, lon, name } = data[0];
-        getWeatherDetails(name, lat, lon);
-    }).catch(() => {
-        alert("An error occurred while fetching the coordinates!");
-    });
-}
-
 const getUserCoordinates = () => {
     navigator.geolocation.getCurrentPosition(
         position => {
@@ -118,5 +102,3 @@ const getUserCoordinates = () => {
 locationButton.addEventListener("click", getUserCoordinates);
 searchButton.addEventListener("click", getCityCoordinates);
 cityInput.addEventListener("keyup", e => e.key === "Enter" && getCityCoordinates());
-
-document.addEventListener('DOMContentLoaded', getDefaultCityCoordinates);

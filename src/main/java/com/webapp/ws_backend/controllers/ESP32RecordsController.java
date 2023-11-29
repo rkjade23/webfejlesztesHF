@@ -34,6 +34,11 @@ public class ESP32RecordsController {
         return esp32RecordsService.getRecords();
     }
 
+    @GetMapping("/record")
+    public ESP32Records getLastRecord() {
+        return esp32RecordsService.getLastRecord();
+    }
+
 
     // , consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, produces = MediaType.APPLICATION_JSON_VALUES
     @PostMapping("/records")

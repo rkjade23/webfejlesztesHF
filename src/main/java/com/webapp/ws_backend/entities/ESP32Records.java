@@ -45,6 +45,17 @@ public class ESP32Records {
         this.humidity = humidity;
     }
 
+    public ESP32Records(int windSpeed, int windDirection, float temperature, float pressure, float humidity, Instant createdAt) {
+        this.windSpeed = windSpeed;
+        this.windDirection = windDirection;
+        this.temperature = temperature;
+        this.pressure = pressure;
+        this.humidity = humidity;
+        this.createdAt = createdAt;
+
+        this.id = -1L;
+    }
+
     public Instant getCreatedAt() {
         return createdAt;
     }

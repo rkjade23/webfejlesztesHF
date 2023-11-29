@@ -1,5 +1,6 @@
 package com.webapp.ws_backend.services;
 
+import java.time.Instant;
 import java.util.List;
 
 import com.webapp.ws_backend.repositories.ESP32RecordsRepository;
@@ -40,4 +41,10 @@ public class RecordManager {
         esp32RecordsRepository.deleteById(id);
     }
 
+    public ESP32Records getLastRecord() {
+        return esp32RecordsRepository.findTop1ByOrderByCreatedAtDesc().orElse(
+                new ESP32Records(0, 0, 0.0f, 0.0f, 0.0f, Instant.now())
+        );
+
+    }
 }

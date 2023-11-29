@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/home_v12.css">
+		<script type="text/javascript" src="js/menuscript.js"></script>
+		<script src="js/scriptelore.js" defer></script>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/fontawesome.all.min.css">
+		<link rel="stylesheet" href="css/admin_04.css">
+		<script src="js/jquery-3.6.0.min.js" async></script>
+		<script src="js/bootstrap.min.js" async></script>
+		<title>Kármán Időjárás</title>
+		<link rel="icon" type="image/x-icon" href="images/idojarasallomas2.ico"> 
+
+		<div class="tab">
+			<button class="tablinks" onclick="openTab(event, 'Aktualis')">Aktuális időjárás</button>
+			<button class="tablinks" onclick="openTab(event, 'Elorejelzes')">Előrejelzés</button>
+			<button class="tablinks" onclick="openTab(event, 'Projektrol')">Projektről</button>
+		</div>
+	</head>
+	<body>
+
+
+		<div id="Aktualis" class="tabcontent" style="display:block"> <!frissítésnél így is erre az oldalra fog ugrani, mert ez a lényeg>	
+			<h1>Aktuális időjárás</h1>
+			<p>
+			<section class="mw-100" style="background-image: url('./images/skybackground.jpg');" style="background-repeat:no-repeat;"><!Bootstrap>
+				<div class="container py-5 h-100">
+
+					<div class="container d-flex justify-content-center align-items-center h-100"> <! Középre helyezi>
+						<div class="col-md-16 col-lg-48 col-xl-32">
+							<div class="card mx-auto" style="color: #4B515; border-radius: 35px; background-color:#f1f1f1;">
+								<!<img src="..." class="card-img-top" alt="...">
+								<div class="card-body">
+
+									<div class="d-flex">
+										<h6 class="flex-grow-1">Budapest - Kármán</h6>
+										<h6>_Datum helye_</h6>
+									</div>
+
+									<div class="d-flex flex-column text-center mt-5 mb-4">
+										<h6 class="display-4 mb-0 font-weight-bold" style="color: #1C2331;"> _Hőm.helye_°C </h6>
+										<!<span class="small" style="color: #868B94"><!</span>
+									</div>
+
+									<div class="d-flex align-items-center">
+										<div class="flex-grow-1" style="font-size: 1rem;">
+											<div><i class="fas fa-wind fa-fw" style="color: #868B94;"></i> 
+												<span class="ms-1"> _Szélseb.helye_km/h
+												</span>
+											</div>
+										<div><i class="fas fa-tint fa-fw" style="color: #868B94;"></i> <span class="ms-1">_Páratart.helye_% </span>
+										</div>
+										</div>
+	<!									<div>
+	<!										<img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/ilu1.webp"
+											width="100px">
+	<!									</div>
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			</section>
+			</p>
+
+		</div>
+
+		<div id="Elorejelzes" class="tabcontent">
+		<!<p>
+		<h1>Időjárás előrejelzés</h1>
+		<div class="container">
+			<div class="weather-input">
+				<h3></h3>
+				<input class="city-input" type="text" placeholder="Keresett város neve pl.: Budapest">
+				<button class="search-btn">Keresés</button>
+				<div class="separator"></div>
+				<button class="location-btn">Jelenlegi helyzet</button>
+			</div>
+			<div class="weather-data">
+				<div class="current-weather">
+					<div class="details">
+						<h2>_______ ( ______ )</h2>
+						<h6>Hőmérséklet: __°C</h6>
+						<h6>Szélerősség: __ M/S</h6>
+						<h6>Páratartalom: __%</h6>
+					</div>
+				</div>
+				<div class="days-forecast">
+					<h2>5-napos előrejelzés</h2>
+					<ul class="weather-cards">
+						<li class="card">
+							<h3>( _________ )</h3>
+							<h6>Temp: __°C</h6>
+							<h6>Wind: __ M/S</h6>
+							<h6>Humidity: __%</h6>
+						</li>
+						<li class="card">
+							<h3>( _________ )</h3>
+							<h6>Hőmérséklet: __°C</h6>
+							<h6>Szélerősség: __ M/S</h6>
+							<h6>Páratartalom: __%</h6>
+						</li>
+						<li class="card">
+							<h3>( _________ )</h3>
+							<h6>Hőmérséklet: __°C</h6>
+							<h6>Szélerősség: __ M/S</h6>
+							<h6>Páratartalom: __%</h6>
+						</li>
+						<li class="card">
+							<h3>( _________ )</h3>
+							<h6>Hőmérséklet: __°C</h6>
+							<h6>Szélerősség: __ M/S</h6>
+							<h6>Páratartalom: __%</h6>
+						</li>
+						<li class="card">
+							<h3>( _________ )</h3>
+							<h6>Hőmérséklet: __°C</h6>
+							<h6>Szélerősség: __ M/S</h6>
+							<h6>Páratartalom: __%</h6>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<a href=https://www.codingnepalweb.com/weather-app-project-html-javascript/>by CodingNepal</a>
+		<br><a href=https://openweathermap.org/city/3054643>based on OpenWeather forecasts</a>
+		<!</p> 
+		</div>
+		<div id="Projektrol" class="tabcontent">
+			<div class="projektrolszoveg">
+			<h1>Projektről röviden</h1>
+			<p> A projekt azzal a célkitüzéssel jött létre, hogy a Kármán Tódor Kollégiumban lakók a helyi aktuális időjárásról kapjanak információt.<br>
+Ezért a projekt keretein belül készült egy időjárásállomás, amely az aktuális hőmérsékletet, páratartalmat, szélirányt és szélerősséget képes mérni és megjeleníteni. 
+			</p>
+			<p>
+			<img 
+			src="images/idojarasallomas3.jpg"
+			width=20%
+			height=20%
+			alt="Időjárásállomás képe">
+			</p>
+			<h2>Mechanikai és elektronikai kialakítás</h2>
+			<h3>Mechanikai</h3>
+			<p>A design és mechanikai elemek teljes mértékben a <a href=https://nerdiy.de/de_de/howto-anemosens-ein-3d-gedruckten-windsensor-anemometer-aufbauen/>nerdiy</a> leírása alapján keszültek 3D nyomtatással ASA nyomtatószálból, hogy az időjárásnak is ellenálljon hosszútávon. 
+			</p>
+			<p>
+			<img 
+			src="images/idojarasallomasdarabokban.jpeg"
+			width=20%
+			height=20%
+			alt="Időjárásállomás darabokban">
+			</p>
+			<h3>Elektronikai</h3>
+			<p>Az elektronika elkészítésének alapjául is <a href=https://nerdiy.de/de_de/howto-anemosens-ein-3d-gedruckten-windsensor-anemometer-aufbauen/>nerdiy</a> leírása szolgált, de ebben az esetben az elektronika áttervezésre és optimalizálásra került.
+			</p>
+			<p>
+			<img 
+			src="images/elektronika2d.png"
+			width=20%
+			height=20%
+			alt="Elektronika felül nézet">
+			</p>
+			<p>
+			<img 
+			src="images/elektronika3d.png"
+			width=20%
+			height=20%
+			alt="Elektronika terve 3D-ben">
+			</p>
+			</div>
+		</div>
+	</body>
+	<footer class="footer">
+		<p>Copyright &copy; 2023</p>		
+	</footer>
+</html>	
