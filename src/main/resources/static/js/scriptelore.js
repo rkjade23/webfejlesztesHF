@@ -98,6 +98,8 @@ const getUserCoordinates = () => {
         });
 }
 
+
+//Alapértelmezett város beállítása, default értékkel dolgozik betöltéskor
 function getDefaultCityCoordinates() {
     console.log("default city reached");
     const API_URL = `https://api.openweathermap.org/geo/1.0/direct?q=${"Budapest"}&limit=1&appid=${API_KEY}`;
@@ -111,6 +113,7 @@ function getDefaultCityCoordinates() {
     });
 }
 
+//doc betöltéskor a getDefaultCityCoordinates meghívása
 document.addEventListener("DOMContentLoaded", function () {
     getDefaultCityCoordinates();
 });

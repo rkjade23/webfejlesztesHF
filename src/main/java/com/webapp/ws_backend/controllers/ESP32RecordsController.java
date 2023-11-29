@@ -33,6 +33,7 @@ public class ESP32RecordsController {
         return esp32RecordsService.getRecords();
     }
 
+    //legfrissebb adat betöltése az adatbázisból
     @GetMapping("/record")
     public ESP32Record getLastRecord() {
         return esp32RecordsService.getLastRecord();

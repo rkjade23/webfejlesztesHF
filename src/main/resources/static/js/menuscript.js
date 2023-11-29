@@ -22,6 +22,7 @@ function openTab(evt, tabName)
   evt.currentTarget.className += " active";
 }
 
+//adatok betöltése
 function fetchAndDisplayRecord() {
   fetch('http://localhost:8180/record')
       .then(response => response.json())
@@ -29,6 +30,7 @@ function fetchAndDisplayRecord() {
       .catch(error => console.error('Error fetching record:', error));
 }
 
+//adatok kiiratása adatbázisból id szerint
 function displayRecord(record) {
   document.getElementById('createdAt').textContent = new Date(record.createdAt).toLocaleString();
   document.getElementById('temperature').textContent = `${record.temperature.toFixed(2)} °C`;

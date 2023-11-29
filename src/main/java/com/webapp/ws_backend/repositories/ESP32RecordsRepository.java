@@ -9,5 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface ESP32RecordsRepository extends JpaRepository<ESP32Record, Long> {
+
+    //lekérdezés, ami a legutoljára hozzáadott adatot adja vissza
     Optional<ESP32Record> findTop1ByOrderByCreatedAtDesc();
 }
