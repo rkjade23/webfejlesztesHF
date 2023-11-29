@@ -21,6 +21,10 @@ public class RecordManager {
         return esp32RecordsRepository.findAll();
     }
 
+    public List<ESP32Records> getLatestRecord() {
+        return esp32RecordsRepository.findAll();
+    }
+
     public ESP32Records createRecord(ESP32Records record) {
         return esp32RecordsRepository.save(record);
     }
