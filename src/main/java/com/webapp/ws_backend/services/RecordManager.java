@@ -2,14 +2,13 @@ package com.webapp.ws_backend.services;
 
 import java.time.Instant;
 import java.util.List;
-import java.util.Random;
-
-import com.webapp.ws_backend.repositories.ESP32RecordsRepository;
-import com.webapp.ws_backend.entities.ESP32Record;
 
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.webapp.ws_backend.entities.ESP32Record;
+import com.webapp.ws_backend.repositories.ESP32RecordsRepository;
 
 @Service
 public class RecordManager {
@@ -53,8 +52,8 @@ public class RecordManager {
         esp32RecordsRepository.deleteById(id);
     }
 
+    //amennyiben nem áll rendelkezésre adatsor az adatbázisban, a függvény egy default nulla érteket ad vissza az éppen aktuális időpillanattal
     public ESP32Record getLastRecord() {
-        final var random = new Random();
         return esp32RecordsRepository.findTop1ByOrderByCreatedAtDesc().orElse(
                 new ESP32Record(0, 0, 0.0f, 0.0f, 0.0f, Instant.now())
         );

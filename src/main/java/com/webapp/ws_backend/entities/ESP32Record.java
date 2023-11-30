@@ -10,6 +10,7 @@ import java.time.Instant;
 @Table(name = "esp32_weather_records")
 public class ESP32Record {
 
+    //az adatbázis oszlopainak definiálása
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

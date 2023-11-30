@@ -28,23 +28,26 @@ public class ESP32RecordsController {
         this.esp32RecordsService = esp32RecordsService;
     }
 
+    //az összes rendelkezésre alló betöltése az adatbázisból
     @GetMapping("/records")
     public List<ESP32Record> getAllRecords() {
         return esp32RecordsService.getRecords();
     }
 
-    //legfrissebb adat betöltése az adatbázisból
+    //legfrissebb adatsor betöltése az adatbázisból
     @GetMapping("/record")
     public ESP32Record getLastRecord() {
         return esp32RecordsService.getLastRecord();
     }
 
+    //adatsorok létrehozása az adatbázisban és ha már van n darab adat, a legrégebbi adat törlése
     @PostMapping("/records")
     public ResponseEntity<ESP32Record> createRecord(@RequestBody @Valid ESP32Record record) {
         final var savedRecord = esp32RecordsService.createRecordAndDeleteFirst(record);
         return new ResponseEntity<>(savedRecord, HttpStatus.CREATED);
     }
 
+    //adatsor törlése ID alapján
     @DeleteMapping("/records/{id}")
     public ResponseEntity<Void> deleteRecord(@PathVariable Long id) {
         esp32RecordsService.deleteRecord(id);
