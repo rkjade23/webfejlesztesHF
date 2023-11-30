@@ -171,6 +171,13 @@ h1 {
   display: flex;
   gap: 20px;
 }
+.weather-cards {
+  padding: 0;
+  display: flex;
+  justify-content: left; 
+  align-items: center;
+}
+
 .weather-cards .card {
   color: #fff;
   padding: 18px 16px;
