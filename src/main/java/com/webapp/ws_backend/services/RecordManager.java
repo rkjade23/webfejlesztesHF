@@ -56,12 +56,7 @@ public class RecordManager {
     public ESP32Record getLastRecord() {
         final var random = new Random();
         return esp32RecordsRepository.findTop1ByOrderByCreatedAtDesc().orElse(
-                new ESP32Record(random.nextInt(-10, 20),
-                        random.nextInt(0, 360),
-                        random.nextFloat(-25.f, 50.f),
-                        random.nextFloat(1000),
-                        random.nextFloat(0.f, 100.f),
-                        Instant.now())
+                new ESP32Record(0, 0, 0.0f, 0.0f, 0.0f, Instant.now())
         );
     }
 }

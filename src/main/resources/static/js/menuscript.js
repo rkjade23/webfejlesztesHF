@@ -24,7 +24,7 @@ function openTab(evt, tabName)
 
 //adatok betöltése
 function fetchAndDisplayRecord() {
-  fetch('http://localhost:8180/record')
+  fetch('/record')
       .then(response => response.json())
       .then(data => displayRecord(data))
       .catch(error => console.error('Error fetching record:', error));
